@@ -1,0 +1,48 @@
+# ===============================
+# 🚀 NODE + TYPESCRIPT + KNEX
+# ===============================
+
+# Node modules
+node_modules/
+
+# Compiled output
+dist/
+build/
+tmp/
+temp/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.test
+.env.production
+
+# SQLite local database
+*.db
+
+# OS junk files
+.DS_Store
+Thumbs.db
+
+# Editor folders/files
+.vscode/
+.idea/
+*.swp
+
+# Coverage reports
+coverage/
+.nyc_output/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Knex migration & seed temp files
+.knex_history.json
