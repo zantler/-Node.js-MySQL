@@ -6,16 +6,23 @@
   "main": "index.js",
   "scripts": {
     "start": "npx tsc && node ./dist/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:seed": "node --loader ts-node/esm ./src/seeds/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "knex": "^3.1.0",
+    "mysql2": "^3.15.1",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
+    "@types/knex": "^0.16.1",
     "@types/node": "^24.6.2",
     "typescript": "^5.9.3"
   }
