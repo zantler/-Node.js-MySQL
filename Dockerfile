@@ -35,4 +35,4 @@ USER app
 EXPOSE 3000
 
 # Comando por defecto
-CMD ["node", "dist/app.js"]
+CMD ["npm","start"]

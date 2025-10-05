@@ -2,6 +2,10 @@ import "dotenv/config";
 import { Sequelize } from "sequelize";
 import mysql from "mysql2/promise";
 import fs from "node:fs";
+import CustomerModel from "./models/Customer.js";
+import ProductModel from "./models/Product.js";
+import OrderModel from "./models/Order.js";
+import OrderItemModel from "./models/OrderItem.js";
 
 const {
   DB_DIALECT = "mysql",
@@ -90,3 +94,19 @@ export async function connectDB() {
     process.exit(1);
   }
 }
+
+export const Customer = CustomerModel(sequelize);
+export const Product = ProductModel(sequelize);
+export const Order = OrderModel(sequelize);
+export const OrderItem = OrderItemModel(sequelize);
+
+Customer.hasMany(Order, { foreignKey: "customerId" });
+Order.belongsTo(Customer, { foreignKey: "customerId" });
+
+Order.hasMany(OrderItem, { foreignKey: "orderId" });
+OrderItem.belongsTo(Order, { foreignKey: "orderId" });
+
+Product.hasMany(OrderItem, { foreignKey: "productId" });
+OrderItem.belongsTo(Product, { foreignKey: "productId" });
+
+console.log("✅ Relaciones de modelos definidas correctamente");

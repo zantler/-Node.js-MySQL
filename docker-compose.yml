@@ -8,5 +8,7 @@ services:
     image: my-node20-api
     env_file: .env
     ports:
-      - "3000:3000"
+      - "3001:3001"
+      - "3002:3002"
     restart: unless-stopped
+    command: sh -c "npm run db:seed:js && npm start"
